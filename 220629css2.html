@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+            
+        }
+        .div1 {
+            background-color: tomato;
+        }
+        .div2 {
+            /* position: relative; */
+            position: relative;
+            left: 100px;
+            background-color: greenyellow;
+        }
+        .div3 {
+            position: absolute;
+            left: 50px;
+            background-color: aqua;
+        }
+        .div4 {
+            position: fixed;
+            background-color: black;
+            top: 20px;
+            left: 300px;
+        } 
+        /* 위치 맘대로 하고 싶을 때  fixed */
+        /* 원만들때 color 쓰는게 아니고 background-color 써야함. */
+        /* 정적방식은 기본방식 */
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"><div class="div3"></div></div>
+    <div class="div4"></div>
+</body>
+</html>
