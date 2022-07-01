@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative; 
+            animation-name: myanimation;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            animation-timing-function: ease-in;
+            /* ease-in 천천히 시작했다 가속이 붙음.(ease-out은 반대) */
+            /*animation-delay:*/
+            animation-play-state: ;
+            /* 움직여야 되니까 포지션을 relative로 설정했음. */
+            /* 몇 번 반복할지 알려주는것이 iteration-count 
+            animation-duration : 2s 2초 동안 진행한다.
+            0이면 설정해놓은게 없기 때문에 움직이지 않는 것.*/
+            /* animation: 1s ease-in alternate; 이런식으로 한 줄에 적을 수 있음. */
+        }
+        @keyframes myanimation {
+            0% { left : 0px;}
+            25% { left : 100px;}
+            50% { left : 200px;}
+            75% { left : 300px;}
+            100% {left : 400px;}
+            /* %가 애니메이션의 진행상황임. */
+            /* 
+            to 
+            from 으로 나타낼 수 있음 */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
