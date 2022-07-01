@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform:skew,z-index</title>
+    <style> 
+        img {
+            width: 300px;
+            height: 200px;
+            transform: skewY(30deg);
+            position: relative;
+            
+        }
+
+        .first {
+            z-index: 3;
+            top:250px;
+            left: 70px;
+        }
+        .second {
+            z-index: 2;
+            top:280px;
+            
+
+        }
+        .third {
+            z-index: 1;
+            top:310px;
+            left: -80px;
+        }
+        
+    </style>
+</head>
+<body>
+    <img class="first" src="sky.jpg" alt="">
+    <img class="second" src="sky.jpg" alt="">
+    <img class="third" src="sky.jpg" alt="">
+</body>
+</html>
