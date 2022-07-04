@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsExercise</title>
+    <script>
+        //1. 변수 x가 10보다 크고 20보다 작을 때 변수 X를 출력하는 조건식을 완성하라
+        var x = 15;
+        if( 10 < x || x < 20 ){
+            console.log(x);
+        }
+        //2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
+        for(var i = 0; i<10; i++){
+            if(i%2==0){
+                console.log(i);
+            }
+        }
+        //3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.
+        for(var i = 0; i<10; i++){
+            if(i%2==0){
+                var num = String(i);
+                console.log(num);
+                document.writeln(typeof(num));
+            }
+        } //  변수에 함수로 도출된 값은 못넣나? String함수 대신 toString 넣었을 땐 안됐음. 왜 그랬을까.
+            // toString()은 object의 프로토타입 함수.
+            // typeof 연산자는 객체가 우측 피연산자에 올 경우 object를 반환하므로 객체의 세부적인 타입을 체크하기에는 제한적. 
+            // https://developer-talk.tistory.com/179
+
+        //4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
+        for(i = 10; 0<=i; i--){
+            if(i%2!=0){
+                console.log(i);
+            }
+        } //  큰 수부터 출력하는 법? 큰 수부터 시작하면 안되는건가. 아.. 부등호 위치 제대로 하기!
+        
+        //5. while문을 사용하여 0 부터 10 미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
+        while() 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

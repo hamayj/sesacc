@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>타이틀</title>
+    <script>   
+        console.log(document.documentElement); // 도큐먼트 안의 모든 요소를 가져옴.
+        console.log(document.head);
+        console.log(document.body); // 얘를 읽는 타이밍에 바디 태그가 없었기에 못 읽은 것. 
+        console.log(document.title);
+        console.log(document.URL); // 현재 실행시키고 있는 곳의 전체 주소를 가져옴.
+        console.log(document.domain); // 도메인이 있으면 나오고, 없으면 안나옴. 
+        // 도메인 : 사이트 주소. 구매해야 쓸 수 있음. 겹치면 안되기 때문에 이상한 도메인들 많음.
+        // 
+
+
+        // <스크립트 위치 차이 설명>
+        //흰 페이지가 보일 때 읽어지는 것이 head태그. 뭔가 읽어지면 body태그 읽히고 있는 것.
+        // 스크립트 태그를 헤드에 놓으면 읽는데 시간이 오래 걸려서 사용자는 빈 화면을 오래 봐야 해.
+        // 바디태그에 스크립트를 놓으면 페이지는 읽혔는데 함수나 다른 요소를 바로 사용못할 수 있음.
+        // 상황에 따라 스크립틑의 위치를 바디와 헤드 택하면 됨.
+
+        // 처음 흰색이 오래 뜬다? -> 헤드 태그에 뭔가 많이 넣은 것.
+        // 페이지 로딩이 빠르다? -> 
+        // 네이버 페이지 -> 타고타고타고 들어옴. 보안이 좋을 수록 숨겨져 있음.
+
+    
+    </script>
+</head>
+<body>
+    <div>
+        <p>안녕</p>
+    </div>
+    
+    <script>
+        console.log(document.body);
+    </script>
+</body>
+</html>

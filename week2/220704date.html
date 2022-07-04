@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object Date</title>
+    <script>
+        // 초기화 해야 된다는 것은 변수에 담아야 된다는 것
+        var date = new Date();
+        console.log(date);
+
+        // 편하게 쓰는 함수들 알아보기
+        console.log(date.getFullYear()) ; // 년도 전체 출력. 년도는 getMonth / getDate / getDay / getTime / getHours 등등...
+        console.log(date.getYear()); // 2000년대 부터 두자리 수로 나타내기가 어려웠기 때문에 fullyear가 새로 나온 것. 
+        console.log(date.getMonth()); // 0부터 시작하는 인덱스이기 때문에 7월이지만 6이 나온 것. 
+        console.log(date.getDate());
+        console.log(date.getDay());
+        console.log(date.getTime()); // 처음 시작한 시간으로부터 얼마나 지났는지 알 수 있는. 
+        console.log(date.getHours());
+    
+        // Mate
+        console.log(Math.min()); // 값이 전달되지 않았기 때문에 인피니티
+        console.log(Math.min(-10, 1, 2));  
+        console.log(Math.min(-10, 2, "a")); // 비교할 수 없는 값이 들어있으면 NaN이 뜸. 숫자가 아닌 값이 포함돼 있다. 
+        // random 0<=random<1 값 중에서 무작위로 출력.
+        console.log(Math.random());
+        // 10보다 크고 20보다 작은 수 중에서 랜덤값 구하기
+        // Math.ramdom() * (20-10) + 10; // random값 * (큰값-작은값) + 작은값. 공식처럼 외우면 편함.
+        //round 반올림.
+        // floor 버림
+        // ceil 올림.
+
+        console.log(Math.round(-10.9)); // 음수의 반올림 개념? 
+        console.log(Math.round(11.1));        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
