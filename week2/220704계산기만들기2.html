@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate() {
+            var val1 = Number(document.getElementById("value1").value); 
+            var val2 = Number(document.getElementById("value2").value);
+            var sign = document.getElementById("sign").value;
+            var total = 0; 
+    
+                if(sign == "+"){
+                total = val1+val2;
+                } else if(sign == "-"){
+                total = val1-val2;
+                } else if(sign == "*") {
+                total = val1*val2;
+                } else if(sign == "/") {
+                total = val1/val2;
+                }
+            document.getElementById("total").value = total;
+        }
+        
+        function removeAll(){
+            document.getElementById("value1").value = "";
+            document.getElementById("value2").value = "";
+            document.getElementById("total").value = "";
+            document.getElementById("sign").value = "";
+        }
+    </script>
+</head>
+<body>
+    <form>값1: <input type="text" id="value1"><br>
+    값2: <input type="text" id="value2"><br>
+    연산자: <input type="text" id="sign"><br>
+    결과: <input type="text" id="total"><br>
+    <button type="button" onclick="calculate();">계산하기</button>
+    <button type="reset">초기화</button>
+    아 왜 안돼?????      휴 됐다..서터레스 ^^</form>
+    
+</body>
+</html>

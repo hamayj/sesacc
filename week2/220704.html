@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div { background-color: pink;}
+        p { background-color: skyblue;}
+        .text { color: red;}
+    </style>
+    <script> // 요소를 스크립트 요소로 만들거야. 
+        function addNode(){
+            var p1 = document.createElement("p");
+            console.log(p1);
+            var div1 = document.getElementById("div1");
+
+            p1.innerText = "p태그입니다."; // p태그 안에 글자를 넣어주는 것.\
+            // 클래스 속성은 특이하게 className으로 지정해줘야 함.
+            // 나머지들은 속성 그 자체 쓰면 된다(?)
+            p1.className = "text"; // 클래스네임과 이너텍스트만 좀 다르드ㅏ.
+            var img = document.createElement("img");
+            img.src = "1.jpeg";
+            img.width = 100;
+            div1.appendChild(img);
+            div1.appendChild(p1); // 부모요소 안에 자식요소가 추가됨. p태그를 내가 원하는 곳에 넣음.
+        }
+
+        function change(){
+            //document.write("<h1>안녕</h1>"); // 웬만해선 쓰면 안됨. 문서를 새로 적는 것.
+            // document는 문서 전체..^^
+            var input = document.getElementById("value1");
+            input.value = "input창"; // input 언제 만들었지...? 난 모르겠다..^^
+
+            
+        }
+
+        function removeNode(){
+            var div1 = document.getElementById("div1");
+            var child = document.getElementsByClassName("text");
+            console.log(child[0]); //child
+            //div1.removeChild(child[0]); // child만 썼을 때는 삭제 할 수 없음... 리스트 요소이기 때문?????
+            child[0].remove();  // ????? ㅋㅋㅋ 미췬다 ㅠㅠ ㅋㅋㅋㅋㅋ
+
+        }
+    </script>
+</head>
+<body>
+    <!-- 삽입, 변경, 삭제하는 버튼 만들기 -->
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <button type="button" onclick="addNode();">삽입</button>
+    <button type="button" onclick="change();">변경</button>
+    <button type="button" onclick="removeNode();">삭제</button>
+</body>
+</html>

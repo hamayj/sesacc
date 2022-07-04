@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <script>
+
+    
+        function calculate(){
+            
+            var val1 = Number(document.getElementById("value1").value);
+            var val2 = Number(document.getElementById("value2").value);
+            var sign = document.getElementById("sign").value;
+            var result = 0;
+           
+                if(sign == "+"){
+                    result = val1 + val2 ;
+                } else if (sign =='-'){
+                    result = val1-val2 ;
+                } else if (sign == "*"){
+                    result = val1*val2 ; 
+                } else if (sign == "/"){
+                    result = val1/val2
+                } 
+                document.getElementById("result").value  = result;
+
+            
+        }
+
+
+        function removeAll(){
+            document.getElementById("value1").value  = "";
+            document.getElementById("value2").value  = "";
+            document.getElementById("sign").value  = "";
+            document.getElementById("result").value  = "";
+        }
+    </script>
+
+</head>
+<body>
+    값1: <input type="text" id="value1">
+    <br>
+    값2: <input type="text" id="value2">
+    <br>
+    연산자: <input type="text" id="sign">
+    <br>
+    결과: <input type="text" id="result">
+    <br>
+    <button type="button" onclick="calculate();">계산하기</button>
+    <button type="button" onclick="removeAll();">초기화</button>
+</body>
+</html>

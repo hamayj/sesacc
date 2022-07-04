@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guestbook</title>
+    <script>
+            var num = 1;
+            function write2(){
+                //var date2 = new Date(2016,5,25);
+                //console.log( date2.getFullYear() );
+                //document가 html보다 상위
+                //document.write
+
+                var a = a + 10;
+                var visitor = document.getElementById("visitor").value;
+                //var num = 1;
+                var contents = document.getElementById("contents").value;
+                var date = new Date();
+                const table = document.getElementById("form");
+                
+                const newRow = table.insertRow();
+                const newCell0 = newRow.insertCell(0);
+                const newCell1 = newRow.insertCell(1);
+                const newCell2 = newRow.insertCell(2);
+                const newCell3 = newRow.insertCell(3);
+
+                newCell0.innerText = num;
+                console.log(num);
+                newCell1.innerText = visitor;
+                newCell2.innerText = contents;
+                newCell3.innerText = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay() + ' ' + date.getHours() + ':' + date.getMinutes();
+
+                num = num + 1;
+            }
+        
+    </script>
+</head>
+<body>
+    방명록입니다.
+    <br>
+    <br>
+    <strong>작성자</strong> <input type="text" id="visitor"> <br>
+    <strong>내용</strong> <input type="text" id="contents"> <br><br>
+    <button type="button" onclick="write2();">작성</button>
+    <br><br>
+    <table id="form" border=1; width = "700">
+        <tr style="font-weight: bold; text-align: center;">
+            <td width="100">번호</td>
+            <td width="100">작성자</td>
+            <td width="300">내용</td>
+            <td width="200">작성일</td>
+        </tr>
+
+    </table>
+</body>
+</html>
