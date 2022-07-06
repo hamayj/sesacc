@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function setValue(){
+            //val함수에 파라미터를 넣으면 값이 들어가짐.
+            $("#input").val("setting"); // input tag에 값을 넣어줬음.
+            
+
+        }
+        function getValue(){
+            alert($("#input1").val()); // 가져오고 싶으면 val 안을 빈칸으로 해줘야함.
+            // 프론트에서 제이쿼리 많이쓰고, // 
+
+        }
+
+        function changeStyle(){
+            // var span = document.querySelector("span");
+            // span.style = "font-size: 20px; color: red;";
+            $("span").css("font-size", "28px");
+            $("span").css("color", "orange");
+            
+        }
+        //querySelctorAll 쓰면 한개만 있어도 배열에 담겨서 옴.
+
+        function changeText(){
+            // var span = document.querySelector("span");
+            // span.innerText = "JS!"
+            $("span").text("jQuery");
+        }
+
+        function changeAttribute(){
+            // 요소.속성 = "속성값" ; 으로 설정가능했음.
+            // var img = document.querySelector("img")
+            $("img").attr("width", "100");
+        }
+
+        function changeHTML(){
+            // var p = document.querySelector("p");
+            // p.innerHTML = "<h1>qkqkqk</h1>" 
+            // 태그를 써도 글자로 인식됨.
+            //innerHTML은 HTML 태그를 인식할 수 있다. 
+            
+            $("p").html("<h2>blablablh</h2>");
+        }
+    </script>
+
+</head>
+<body>
+    <input type="text" id="input1">
+    <button type="button" onclick="setValue();">setValue</button>
+    <button type="button" onclick="getValue();">getValue</button>
+    <br>
+    <span>안녕</span>
+    <img src="" alt="">
+    
+    <button type="button" onclick="changeStyle();">changeStyle</button>
+    <button type="button" onclick="changeText();">changeText</button>
+    <button type="button" onclick="changeAttribute();">changeAttribute</button>
+    <p style="background-color: orange;"> p tag </p>
+
+    
+    <button type="button" onclick="changeHTML();">changeHTML</button>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+    <link rel="stylesheet" href="..//jquery-ui-1.13.1.custom/jquery-ui.css">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .css1 {
+            background-color: red;
+        }
+        .css2 {
+            background-color: orange;
+        }
+        .css3 {
+            background-color: yellow;
+        }
+        .css4 {
+            background-color: green;
+        }
+        .css5 {
+            background-color: blue;
+        }
+        .css6 {
+            background-color: purple;
+        }
+
+        
+    </style>
+    <script>
+
+        var colors = ['css1', 'css2', 'css3', 'css4', 'css5', 'css6'];
+        // 규칙이 있기 때문에 배열로 가능.
+
+
+        var colArr = 
+        function changeColor(){
+            alert($("div").attr("class"));
+            
+            // if($("div").hasClass("css1")){
+            //     $("div").switchClass("css1","css2",2000);
+            //     $("div").switchClass("css2","css3",2000);
+            //     $("div").switchClass("css3","css4",2000);
+            //     $("div").switchClass("css4","css5",2000);
+            //     $("div").switchClass("css5","css6",2000);
+            // }
+        }
+        changeColor();
+
+        function changeColor1()
+        
+        // 무한 반복이랑 배열이용해서 해보라고 함. -_-^
+        // class 숫자를 넣어서 해봐라. -_-^ 윽 
+    </script>
+</head>
+<body onload="changeColor();">
+    
+    <div class="css1" onclick="changeColor();"></div>
+</body>
+</html>
