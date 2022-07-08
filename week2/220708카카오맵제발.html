@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <title>페이지 타이틀。</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="map" style="width:700px;height:500px;"></div>
+
+        <script src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
+
+        <!-- 기본 지도 app key -->
+        <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APP API KEY=63bc662edf54130a82a48f507aa35118 libraries=services"></script>
+
+        <!-- 기본 지도 기능에서 클러스터 추가 사용 -->
+        <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APP API KEY&libraries=services,clusterer,drawing"></script>
+
+        <script type="text/javascript" src="index.js"></script>
+
+        <script>
+            var map;
+            var mapContainer;
+
+            window.onload = function () {
+                mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                mapOption = {
+                    center: new kakao
+                        .maps
+                        .LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };
+
+                // 지도를 생성합니다
+                map = new kakao
+                    .maps
+                    .Map(mapContainer, mapOption);
+            }
+        </script>
+
+    </body>
+
+</html>

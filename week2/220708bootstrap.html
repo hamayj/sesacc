@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> -->
+        
+</head>
+<body>
+    <!-- 부트스트랩 버튼에서 가져와서 붙여줬어. --> 
+    <!-- 안쪽 여백이 패딩 바깥쪽 여백이 마진 -->
+    <!-- 부트스트랩쓰면 간단하게 표기하고 설정할 수 있음. -->
+    <button type="button" class="btn btn-primary m-4">Primary</button> 
+    <!-- class 에서 btn은 버튼 의미. btn-primary는 색상을 뜻함. -->
+    <button type="button" class="btn btn-secondary p-5">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button>
+
+<!-- Navbar 부트스트랩쓰면 좋은게 알아서 반응형을 해주기 때문. 화면 크기 조정할 때 알아서 적용됨. -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+    <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Link with href
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Button with data-bs-target
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+
+    <div class="d-flex justfy-content-between">
+
+    </div>
+    <!-- grid   는 총 6칸 갖고 있음. -->
+    <div class="row">
+        <div class="col bg-warning">1</div>
+        <div class="col bg-primary">2</div>
+    </div>       
+<!-- tr, td순서였으니까 row 안에 col 을 넣을거야. -->
+    <div class="row">
+        <div class="col bg-warning">1</div>
+        <div class="col bg-primary">2</div>
+        <div class="col bg-info">3</div>
+        <!-- div가 3칸씩 갖고 있음. -->
+    </div>
+    <div class="row">
+        <!-- width가 992보다 작으면 6을 적용해라.  -->
+        <!-- 큰 것부터 앞에 써라... -->
+        <div class="col-lg-6 col-sm-1 bg-warning">1</div>
+        <!-- if(width>=sm ) col-4
+        else if(width>=lg) col-6-->
+        <div class="col-lg-2 col-sm-3 bg-primary">2</div>
+        <div class="col-lg-3 col-sm-6 bg-info">3</div>
+        <!-- div가 3칸씩 갖고 있음. -->
+        <!-- 화면 꽉차게 하고 싶으면 col의 값을 12가 나오게 지켜주면 됨.  -->
+        <!-- 특정 요소를 크기에 따라 보이게 안보이게 설정할 수 있음. -->
+        <div class="row">
+            <div class="d-sm-block d-lg-none col bg-danger">111</div>
+            <div class="d-sm-none d-md-block d-lg-none col bg-warning">222</div>
+            <div class="d-sm-none d-lg-block col bg-success">333</div>
+        </div>
+
+
+    </div>
+</body>
+</html>
