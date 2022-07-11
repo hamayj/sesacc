@@ -1,0 +1,72 @@
+
+  규리쌤이  navbar-dark로 바꿔줌. 바꾸기 전에는..?
+  <nav class="navbar navbar-expand-md ">
+    <!-- nav 가운데 정렬하는 것은 class에 justfy-content-center를 추가하니 됨. -->
+      <div class="container-fluid">
+        <!-- 애플 로고 크기를 사이트에서 재서 쓸 수 있나? 확인 방법? 
+        애플 로고 왼쪽 패딩 값 설정? 
+        색 설정? 
+        사이트에서 직접 가져와서 쓸 수 있나? 
+        -->
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://www.apple.com/kr/store" >스토어</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://www.apple.com/kr/store">Mac</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://www.apple.com/kr/store">iPad</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">iPhone</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">Watch</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">Airpods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">TV 및 홈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">Apple 독점 제공</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="https://www.apple.com/kr/store">액세서리</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://www.apple.com/kr/store">고객지원</a>
+            </li> 
+            <!-- active되어 있으면 항상 그냥 활성화 되어 버림! -->
+          </ul>
+          <!-- search 처리 어떻게 할건지. -->
+          <form class="d-flex" role="search">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <img src="search.png" alt=""width="20%" height="40%" >
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="basket.png" width="20px" height="20px" alt="">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- 바로 밑 말고 다른 자리로는 못가게 하는지? -->
+                <div>장바구니가 비어 있습니다. </div>
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- div 태그 높이 지정이 안되는듯. 왜저랩??? -->
