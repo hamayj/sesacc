@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid & Flex</title>
+    <style>
+        .container {
+            display: grid;
+            height: 100vh; 
+            /* 100vh 무슨 단위지..^^ */
+            grid-template-rows: 2fr 300px 30px 1fr 1fr;
+            grid-gap: 10px; 
+            color:rgb(226, 110, 43);
+        }
+        
+        div {
+            color: rgb(226, 110, 43);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Grid는 행과  열 동시에 다룸
+    <div style="display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;"> 
+        <div style="background-color: rgb(226, 110, 43);">a</div>
+        <div style="background-color: rgb(198, 231, 154);">a</div>
+        <div style="background-color: rgb(238, 136, 136);">a</div>
+        <div style="background-color: rgb(161, 184, 228);">a</div> -->
+
+    </div>
+
+
+    <div class="container">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+    </div>
+
+    <div class="container">
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
+        <div class="box e">E</div>
+    </div>
+
+
+</body>
+</html>
