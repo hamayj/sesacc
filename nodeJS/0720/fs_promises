@@ -1,0 +1,32 @@
+
+const fs = require("fs").promises;
+
+// 이거 쓰면 동기적으로 기다림.
+
+// fs.writeFile('./write.txt', '안녕')
+//     .then(() => {
+//         console.log("작성완료");
+//     })
+//     .catch((err) => {
+//         console.log( err );
+//     });
+
+// // 나 왜 파일 안만들어져 ^^
+
+// fs.copyFile("./write.txt", "./new.txt")
+// // 두번째 인자로는 내가 복사해서 만들 파일 적어주기.
+//     .then(() => {
+//         console.log("복사완료");
+//     })
+//     .catch((err) => {
+//         console.log( err );
+//     });
+
+//     // 주석처리를 해야. 
+
+
+async function exec(){
+    await fs.writeFile("./write.txt", "안녕");
+    await fs.copyFile("./write.txt", "./new2.txt");
+}
+exec();

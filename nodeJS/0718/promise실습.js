@@ -1,16 +1,10 @@
 function call(name, cb ){
-    return new Promise (function (resolve, reject) {
-        setTimeout( function(){
+    setTimeout( function(){
         console.log( name );
-        resolve(name);
-    }, 1000 ); // 초를 기다렸다 함수 실행. 
-    // 콜백 함수는 이어질 함수를 넣는것 (??)
-})
+        cb( name );
+    }, 1000 );
 }
-
-
 function back( cb ){
-    return new Promise ( function ( resolve, reject ){
     setTimeout( function() {
         console.log( "back" );
         cb( "back" );
