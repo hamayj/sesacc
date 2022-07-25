@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 전송 - 실습</title>
+    <style>
+        form {
+            background-color: rosybrown;
+        }
+    </style>
+</head>
+<body>
+    <form action="/ex30receive" method="POST"> 
+        <!-- method 지워줘야돼 -->
+        <!-- /receive였는데 상대경로라서 지웠다고?? ^~^? -->
+        <!-- get이 기본이니까 post로 메소드 설정해준 것. -->
+ 
+        <!-- name이 어떻게 보이는지는 서버에서 보여줄거야.
+        text면 글자를 입력하는 칸, placaholder는 기본적으로 보이는 글자.
+        required 폼전송에서 필수 입력이라서 입력되지 않으면 다음으로 넘어가지 않음. 다른 태그에도 속성으로 자주 쓰임. -->
+
+        폼 전송 - 실습 <br>
+        <fieldset>
+            <legend>다 알아버릴거야</legend>
+            이름 <input type="text" name="name"> <br>
+            성별 
+            <input type="radio" name="gender" value="남">남
+            <input type="radio" name="gender" value="여">여<br>
+            생년월일 
+            <select name="year" id="">
+                <%for(var i = 1950; i<=2022; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>년
+            <select name="month" id="">
+                <%for(var i = 1; i<=12; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>월
+            <select name="day" id="">
+                <%for(var i = 1; i<=31; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>일 <br>
+            관심사 <input type="checkbox" name="interested" value="여행">여행
+            <input type="checkbox" name="interested" value="패션">패션
+            <input type="checkbox" name="interested" value="음식">음식 <br>
+            좋아하는 색 <input type="color" name="color" id=""><br>
+            자기애는 어느정도? <input type="number" name="love" id=""> <br>
+            옆사람 좋아해요? <input type="range" name="like"><br>
+            <button>회원가입</button>
+        </fieldset>
+    </form> 
+    <!-- 어느 서버로 데이터를 보낼지 정함. 절대경로, 상대경로 모두 괜찮음. 
+    /receive에서 받겠다고 한 부분으로 가는 것. (get, post 둘 중에 가능.)-->
+    <!-- name을 지정하지 않으면 아무리 보내도 안감. -->
+</body>
+</html>

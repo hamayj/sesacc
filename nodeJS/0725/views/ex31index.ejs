@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeSAC</title>
+    <style>
+    fieldset{
+        text-align: center;
+        width: 500px;
+        border: 2px solid;
+        margin: 0px auto;
+        line-height:200%;
+
+    }
+    input:focus {
+        background-color:#58dd78;
+    }
+    </style>
+</head>
+<body>
+    <form action="/ex31receive" method="POST"> 
+    
+
+        <div style="color: #58dd78; text-align: center; text-size-adjust: 100%; font-size:xx-large; ">SeSAC</div><br>
+        <fieldset style="width: 500p " >
+            <legend style="text-align: center;"><span style="color:#58dd78;">SeSAC</span>의 새로운 새싹이 되어주세요!</legend>
+            <label for="">
+                아이디 <input type="text" name="id"> <br>
+            </label>
+            <label for="">
+                비밀번호 <input type="password" name="pw"> <br>
+                비밀번호 확인 <input type="password" name="checkpw"> <br>
+            </label>
+            <label for=""> 
+                이름 </label><input type="text" name="name"> <br>
+            <label for="">
+            성별 </label>
+            <input type="radio" name="gender" value="남">남
+            <input type="radio" name="gender" value="여">여<br>
+            <label for="">
+            코딩에 관심을 가진 날짜 
+            <select name="year" id="">
+                <%for(var i = 1950; i<=2022; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>년
+            <select name="month" id="">
+                <%for(var i = 1; i<=12; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>월
+            <select name="day" id="">
+                <%for(var i = 1; i<=31; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>일 </label><br>
+            <label for="">
+            배우고 싶은 과정 
+            <select name="field" id="">
+                <option value="웹">웹</option>
+                <option value="앱">앱</option>
+                <option value="IoT/로봇">IoT/로봇</option>
+                <option value="AI">AI</option>
+                <option value="빅데이터">빅데이터</option>
+                <option value="클라우드">클라우드</option>
+                <option value="DT과정">DT과정</option>
+                <option value="핀테크">핀테크</option>
+                <option value="AR/VR">AR/VR</option> <br>
+            </select></label> <br>
+            <label for="">
+            깃헙 주소 <input type="text" name="github" id=""></label><br>
+            <label for="">
+            코딩 얼마나 좋아해요? <input type="range" name="like"></label><br>
+            <button>새싹 식구 등록</button>
+        </fieldset>
+    </form> 
+
+</body>
+</html>
