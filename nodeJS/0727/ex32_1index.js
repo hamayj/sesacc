@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs").promises; // callback이나  promise중에 선택하는거.
 
 
+
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true})); // 새로 추가한 부분

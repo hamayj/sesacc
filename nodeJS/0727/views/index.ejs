@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendPost(){
+            axios({
+                method: "post",
+                url: "http://localhost:8080/ex33receive",
+                data:{
+                    name: "codee"
+                }
+            }).then((a) => { return a.data;})
+            //우리에게 필요한 데이터만 받아올거임. 쓸데 없는거 쭉 나오니까 data만 나오게.)
+            .then((d)=> { 
+                alert(d.message);
+            });
+        } // 코드 실패했음 이따 봐야됨.
+
+
+        function sendGet(){
+            axios({
+                method: "get",
+                url: "http://localhost:8080/receive",
+                params:{
+                    name: "codee"
+                }
+            }).then((a) => { return a.data; })
+            //우리에게 필요한 데이터만 받아올거임. 쓸데 없는거 쭉 나오니까 data만 나오게.)
+            .then((d) => { 
+                console.log(d);
+                alert( d.message );
+            });
+        }
+
+        function sendForm(){
+            var form = document.getElementById("form_info");
+            console.log( form ); 
+
+            var result = form.checkValidity();
+            if ( ! result ){
+
+                form.reportValidity(); 
+                // alert("다시 쓰세요.")
+                return false; // return을 하는 것은 함수를 빠져나오는 것.
+            }
+            console.log( result );
+            // console.log(form.name.value); // name속성을 이용해 value만 가져오기. form에서만 사용할 수 있는 특징. 
+            // console.log(form.age.value);
+
+            // axios({
+            //     method: "post",
+            //     url: "http://localhost:8080/receive",
+            //     data:{
+            //         name: form.name.value
+            //     }
+            // }).then((a) => { return a.data;})
+            
+            // .then((d)=> { 
+            //     alert(d.message);
+            // });
+        }
+        
+        
+    </script>
+</head>
+<body>
+    <form action="/ex33receive">
+        <button type="button" onclick="sendGet()">sendGet</button>
+    </form>
+
+    <button onclick="sendPost();">sendPost</button>
+
+    <form id="form_info">
+        <input type="text" name="name" required>
+        <input type="text" name="age" required>
+        <button type="button" onclick="sendForm()">sendForm</button>
+    </form>
+    <!-- form에서만 가능한 방법 알려줄게.  -->
+</body>
+</html>

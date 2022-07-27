@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>폼 전송 - 실습</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+
+        function sendGet(){
+
+            var form = document.getElementById("form_info");
+            var result = form.checkValidity();
+                if( ! result ){
+                    form.reportValidity();
+                    return false;
+                }
+                    console.log(result);
+
+            axios({
+                method: "get",
+                url: "http://localhost:8080/ex33receive", 
+                params:{
+                    name: form.name.value, 
+                    gender: form.gender.value
+                }
+            }).then((a) => { return a.data; })
+
+            .then((d) => { 
+                console.log(d);
+                alert( d.name + "님 회원가입을 축하합니다. 🧑‍🎤🫰" ); 
+
+            });
+            
+        }
+    </script>
+</head>
+<body>
+    <form id="form_info"> 
+
+        폼 전송 - 실습 <br>
+        <fieldset>
+            <legend>다 알아버릴거야</legend>
+            이름 <input type="text" name="name" required> <br> 
+            <!-- required 안걸면 그냥 넘어가 버림. ㅠㅠ -->
+            성별 
+            <input type="radio" name="gender" value="남" required>남
+            <input type="radio" name="gender" value="여" required>여<br>
+            생년월일 
+            <select name="year" id="">
+                <%for(var i = 1950; i<=2022; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>년
+            <select name="month" id="">
+                <%for(var i = 1; i<=12; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>월
+            <select name="day" id="">
+                <%for(var i = 1; i<=31; i++) {%>
+                    <option value="<%=i%>"><%=i%></option>
+                <%}%>
+            </select>일 <br>
+            관심사 <input type="checkbox" name="interested" value="여행">여행
+            <input type="checkbox" name="interested" value="패션">패션
+            <input type="checkbox" name="interested" value="음식">음식 <br>
+            좋아하는 색 <input type="color" name="color" id=""><br>
+            자기애는 어느정도? <input type="number" name="love" id=""> <br>
+            옆사람 좋아해요? <input type="range" name="like"><br>
+            <button type="button" onclick=sendGet(); >회원가입</button>
+        </fieldset>
+    </form> 
+    <!-- 어느 서버로 데이터를 보낼지 정함. 절대경로, 상대경로 모두 괜찮음. 
+    /receive에서 받겠다고 한 부분으로 가는 것. (get, post 둘 중에 가능.)-->
+    <!-- name을 지정하지 않으면 아무리 보내도 안감. -->
+</body>
+</html>
