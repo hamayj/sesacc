@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>SeSAC</title>
+    <style>
+    fieldset{
+        text-align: center;
+        width: 500px;
+        border: 2px solid;
+        margin: 0px auto;
+        line-height:200%;
+    }
+    input:focus {
+        background-color:#58dd78;
+    }
+    </style>
+    <script>
+
+        function sendForm(){
+            var form = document.getElementById("form_info");
+            console.log( form ); 
+
+            var result = form.checkValidity();
+            if ( ! result ){
+
+                form.reportValidity(); 
+                return false; 
+            }
+            console.log( result );
+            
+            axios({
+                method: "post",
+                url: "http://localhost:8080/receive",
+                data:{
+                    id: form.id.value,
+                    pw: form.pw.value
+                }
+
+            }).then((a) => { 
+                console.log(a);
+                return a.data; 
+            })
+
+            .then((d) => {
+                console.log(d);
+                var p = document.getElementById('J');
+                p.innerText = d; //alert(d);
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="form_info"> 
+        <div style="color: #58dd78; text-align: center; text-size-adjust: 100%; font-size:xx-large; ">SeSAC</div><br>
+        <fieldset style="width: 500p " >
+            <legend style="text-align: center;"><span style="color:#58dd78;">SeSAC</span>!</legend>
+            <label for="">
+                아이디 <input type="text" name="id"> <br>
+            </label>
+            <label for="">
+                비밀번호 <input type="password" name="pw"> <br>
+            </label>
+            <p id="J" style="color: green;"></p>
+            <button type="button" onclick="sendForm();">새싹 로그인</button>
+
+        </fieldset>
+    </form> 
+
+</body>
+</html>

@@ -17,17 +17,18 @@ app.get("/", function(req,res){
 }); // action에서 연결해줬음.
 
 
-app.get("/ex30receive", function(req,res){
+app.get("/ex31receive", function(req,res){
     console.log(req);
     console.log(req.query);
     res.render("ex31receive", req.query); 
+    // render의 파라미터...  여기 req.query는 왜 쓰는거?
 }); // action에서 연결해줬음.
 
 
 app.post("/ex31receive", function(req,res){
     console.log("ex31receive");
     console.log(req.body);
-    res.render("ex31receive", req.body); 
+    res.render("ex31receive", req.body);  
     const {id, pw} = req.body;
     var info = + id + "//" + pw ; 
     // req.body는 딕셔너리 형태의 객체임. 

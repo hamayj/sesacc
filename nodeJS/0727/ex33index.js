@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.get("/", function(req,res){
     res.render("ex33index");
-}); // action에서 연결해줬음.
+}); 
 
 
 app.get("/ex33receive", function(req,res){

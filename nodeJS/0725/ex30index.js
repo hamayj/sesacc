@@ -19,7 +19,7 @@ app.get("/", function(req,res){
 app.get("/ex30receive", function(req,res){
     console.log(req);
     console.log(req.query);
-    res.render("ex30receive", req.query); 
+    res.render("ex30receive" , req.query); 
 }); // action에서 연결해줬음.
 
 

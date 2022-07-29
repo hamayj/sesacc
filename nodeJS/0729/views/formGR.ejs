@@ -1,0 +1,32 @@
+<!--
+    form 의 속성은?
+        action : 서버에서 데이터를 받을 경로
+        method : GET, POST
+            GET : URL에 데이터가 보이는 거 ?search=abc&name=123
+            POST : URL에 데이터가 안 보이는 거
+        target : <a> 에도 있던 걸로, 새창으로 옮겨갈 때 새로 열지, 지금 페이지가 이동할지 결정하는 거 - _blank, _self
+
+    button
+        type : button, submit
+            button :  전송하지 않고 함수만을 실행. onClick
+            submit : button이 들어있는 form을 전송하는거 ( 기본값 )
+-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function test(){
+        // method : <form>에서의 method
+        // url : <form>에서의 action
+        // <form action="/test" method="get">
+        axios({
+            method: "get",
+            url: "http://localhost:8000/test",
+            params: { abc: "asdfasdf"  }
+        })
+        .then((a) => { console.log(a); console.log( a.data.ab ); });
+    }
+</script>
+
+<form action="/test" method="GET">
+    <input type="text" name="abc">
+    <button type="button" onclick="test();"></button>
+</form>

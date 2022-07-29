@@ -11,39 +11,27 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true})); 
 app.use(bodyParser.json());
 
-
 app.get("/", function(req,res){
-    res.render("ex32_1index");
+    res.render("ex34index");
 }); 
 
 
-// app.get("/ex32receive", function(req,res){
-//     console.log(req);
-//     console.log(req.query);
-//     res.render("ex32_1receive", req.query); 
-    
-// }); 
-
-// 백에서 ex32receive로 데이터 요청중/
-app.post("/ex32receive", function(req,res){
+app.post("/receive", function(req,res){
     console.log(req.body);
-    // res.render("ex32_1receive", req.body);
-    const { id, pw } = req.body;
 
-    
+    const { id, pw } = req.body;
 
     fs.readFile("info.txt")
     .then(function(data) {
-        data = data.toString(); // 버퍼 형식이니까 바꿈
+        data = data.toString(); 
         console.log(data.split('//')); // //을 기준으로 나눠서 배열에 넣어줌.
         data = data.split('//');
-        
+
         if(data[0]==id && data[1]==pw){
-            res.send("로그인 성공");
+            res.send("로그인 성공"); // res.send로 보낸 것이 then의 데이터(값)로 감.
         } else {
             res.send("아이디 or 비밀번호를 확인해주세요.");
         }
-
     });
 });
 
