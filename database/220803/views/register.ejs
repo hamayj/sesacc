@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>register.ejs</title>
+    </head>
+    <body>
+        <!-- get, post는 보낸 경로와 요청한 경로가 같아야 함. -->
+        <form action="/user/register" target="_blank" method="POST">
+            <fieldset style="width: 300px;">
+                <legend>개인 정보</legend>
+                아이디: <input type="text" name="id"> <br>
+                비밀번호: <input type="password" name="pw"> <br>
+                이름: <input type="text" name="name"> <br>
+                나이: <input type="text" name="age"> <br>
+            </fieldset>
+            <button>회원가입</button>
+        </form>
+    </body>
+</html>
