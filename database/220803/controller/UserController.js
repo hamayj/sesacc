@@ -38,6 +38,14 @@ exports.login = (req, res) => {
 
 exports.post_login = async (req, res) =>  {
     var data = await User.get_user(); 
+
+    var infos = data.split("\n");
+    // [ "a//1//2//3", "b//2//3//4" ];
+    for ( let i = 0; i < infos.length; i++ ) {
+        let info = infos[i].split("//");
+        // 여기서 for문을 또 걸어줘야 되나??
+        
+    }
     // 얘가 안기다려주니까 await처리해서 기다릴 수 있게 해줘야 함. 
     var info = data.split("//"); 
     // split("//") //기준으로 나누고 배열로 담음. 

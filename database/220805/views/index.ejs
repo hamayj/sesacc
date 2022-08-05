@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>index.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+        <script>   
+            function writeComment(){
+                //id값 지정안해도 자동으로 생김.
+                    var form = document.getElementById("form_comment");
+                    axios({
+                        method: 'post',
+                        url: 'http://localhost:8080/visitor/write',
+                        data: {
+                            name: form.name.value,
+                            comment: form.comment.value
+                        }
+                    })
+                    .then((rep) => {
+                        return rep.data;
+                    })
+                    .then((data) => {
+                        console.log(data.id);
+                        let html = 
+                        "<tr><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td></tr>";
+
+                        $("table").append(html);
+                    }); // 문자열을 태그형태로 추가해줌.
+            }
+        </script>
+    </head>
+    <body>
+        <!-- get, post는 보낸 경로와 요청한 경로가 같아야 함. -->
+        <form id="form_comment">
+            <fieldset style="width: 300px;">
+                <legend>방명록 등록</legend>
+                이름: <input type="text" name="name" placeholder="이름을 입력하세요."><br>
+                방명록: <input type="text" name="comment" placeholder="방명록">
+                <br>
+                <button type="button" onclick="writeComment();">등록</button>
+            </fieldset>
+            
+        </form>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>작성자</th>
+                <th>방명록</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <%
+        for (let i = 0; i < data.length; i++) {
+        %>
+        <tr>
+            <td><%=data[i].id%></td>
+            <td><%=data[i].name%></td>
+            <td><%=data[i].comment%></td>
+        </tr>
+        
+        <%
+        }
+        %>
+        </tbody>
+    </table>
+    
+    </body>
+</html>
