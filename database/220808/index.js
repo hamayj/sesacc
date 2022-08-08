@@ -15,6 +15,4 @@ app.use("/user", router);
 
 app.listen(port, ()=>{
     console.log("Server Port : ", port );
-})
-
-
+});

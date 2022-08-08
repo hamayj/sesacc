@@ -42,9 +42,10 @@ exports.login = (req, res) => {
     User.login(req.body.id, req.body.pw, function(result){
         console.log(result[0]);
         if (result.length == 0) {
-            res.redirect("/user/login");
+            res.redirect("/user");
+            // alert("login 실패🧑‍🎤");
         } else {
-            res.render("login");
+            res.render("login", {result: result[0]});
         }
         // res.render(result[0].name); axios에 연결할 때 이렇게.
         // if(req.body.id != )로 할 필요없음.  sql에서 select로 검사해서 보낼거임.
