@@ -50,3 +50,4 @@ exports.delete_comment = (req, res) => {
         res.send("삭제성공"); // send로 클라한테 삭제성공을 보내고 있음. 
     });
 }
+

@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>index.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+        <script>   
+            function register(){
+                //id값 지정안해도 자동으로 생김.
+                    var form = document.getElementById("form_register");
+                    axios({
+                        method: 'post',
+                        url: 'http://localhost:8080/user/register',
+                        data: {
+                            id: form.id.value,
+                            pw: form.pw.value,
+                            name: form.name.value
+                        }
+                    })
+                    .then((rep) => {
+                        return rep.data;
+                    })
+                    .then((data) => {
+                        alert(form.name.value + "님🌱 회원가입이 완료되었습니다!");
+                        // let html = 
+                        // "<tr id='tr_" + data.id +"'><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td>" + "<td><button type='button' onclick='editComment(" + data.id + ");'>수정</button></td>"+ "<td><button type='button' onclick='deleteComment(" + data.id + ");'>삭제</button></td></tr>";
+                        // $("table").append(html);
+                    }); // 문자열을 태그형태로 추가해줌.
+            }
+
+            function login(){
+                //id값 지정안해도 자동으로 생김.
+                    var form = document.getElementById("form_login");
+                    axios({
+                        method: 'post',
+                        url: 'http://localhost:8080/user/login',
+                        data: {
+                            id: form.id.value,
+                            pw: form.pw.value,
+                        }
+                        // method를 get처리 했는데 내용이 노출되니까 post로 바꿔주기.
+                    })
+                    .then((rep) => {
+                        return rep.data;
+                    })
+                    .then((data) => {
+                        alert(data+ "님 로그인 되었습니다!");
+                    }); 
+                // alert 방식말고 화면 내에서 보이게 하는 방법 뭐였지?
+                res.render("login");
+            }
+
+
+
+            function editComment( id ) {
+                // id를 가져와서 셀렉트로 가져온다. id를 where조건절을 걸어서 한개의 값만 가져올 것임.
+                axios({
+                    method: 'get',
+                    url: 'http://localhost:8080/visitor/get?id=' + id
+                    // params로 따로 안써주고 url에서 붙여 넣어도 됨.
+                })
+                .then((rep) => { return rep.data })
+                .then((data) => {
+                    console.log(data);
+
+                    var form = document.getElementById("form_comment");
+                    form.name.value = data.result.name;
+                    // 모델에 저장된 값을 form으로 읽어오는 것.
+                    form.comment.value = data.result.comment; 
+
+                    var html = 
+                    "<button type='button' onclick='editDo(" + id + ");'> 수정 </button>";
+                    "<button type='button' onclick='editCancel();'>취소</button>"
+
+                    document.getElementById("button-group").innerHTML = html;
+                }); 
+                    // { data : result };
+                    // [ { id: 0, name: 1 }]
+                    // req.data.data[0].id;
+            } 
+            // 경로를 만들어야 하니까 라우터로 가자.
+            
+            function editDo( id ){
+                // 정보를 새롭게 수정하는 함수
+                var form = document.getElementById("form_comment");
+                axios({
+                    //  put은 전부 바꾸는 것, patch는 특정부분을 바꾸는 것
+                    method: 'patch',
+                    url : 'http://localhost:8080/visitor/edit',
+                    data : {
+                        id: id,
+                        name: form.name.value, 
+                        comment: form.comment.value
+                    }
+                }).then ((rep) => { return rep.data ; })
+                .then((data) => {
+                    alert( data );
+
+                    var tr = document.getElementById("tr_" + id);
+                    var children = tr.children;
+
+                    $(children[1]).text(form.name.value); 
+                    // tr의 하위 태그중 2번째인 name 수정. 
+                    $(children[2]).text(form.comment.value);
+                    console.log( children );
+                })
+            }
+
+            function deleteComment( id ) {
+                axios({
+                    method : 'delete',
+                    url: 'http://localhost:8080/visitor/delete',
+                    data: { id: id}
+                    // 컨트롤러에서 쓰기 위해 보내준다. 
+                }).then((rep) => { return rep.data; })
+                .then((data) => { 
+                    alert( data );
+                    // var tr = document.getElementById("tr_"+ id);
+                    // $( tr ).remove(); 
+                    // tr태그 동적으로 지우기.
+                    $("#tr_" + id ).remove();
+                });
+            }
+
+            function editCancel() {
+                var form = document.getElementById("form_comment");
+                form.reset();
+
+                var html = "<button type='button' onclick='writeComment();'>등록</button>";
+                document.getElementById("button-group").innerHTML = html;
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form id="form_register" method="POST" style="text-align: center;">  
+        <!-- form action 부분 지움. -->
+            <div style="color: #58dd78; text-align: center; text-size-adjust: 100%; font-size:xx-large; ">SeSAC</div><br>
+            <fieldset style="width: 500p" >
+                <legend style="text-align: center;"><span style="color:#58dd78;">SeSAC</span>의 새로운 새싹이 되어주세요!</legend>
+                <label for="">
+                    아이디 <input type="text" name="id"> <br>
+                </label>
+                <label for="">
+                    비밀번호 <input type="password" name="pw"> <br>
+                </label>
+                <label for="">
+                    이름 <input type="text" name="name"> <br>
+                </label>
+                <div>
+                    <button type="button" onclick="register();">새싹 식구 등록</button>
+                </div>
+            </fieldset>
+        </form>
+        
+        <form method="post" action="user/login" style="text-align: center;">  
+            <fieldset style="width: 500p" >
+                <legend style="text-align: center;"><span style="color:#58dd78;">SeSAC</span> 로그인</legend>
+                <label for="">
+                    아이디 <input type="text" name="id"> <br>
+                </label>
+                <label for="">
+                    비밀번호 <input type="password" name="pw"> <br>
+                </label>
+                <div>
+                    <button>로그인</button>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
+
+
+
