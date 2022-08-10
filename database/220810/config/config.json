@@ -1,0 +1,24 @@
+{
+    "development" : {
+        "host" : "localhost",
+        "database" : "visitor",
+        "username" : "user",
+        "password" : "SeSAC4web!",
+        "dialect" : "mysql"
+    },
+
+    "production" : {
+        "host": "000.000.000.000",
+        "database": "sesac",
+        "username": "admin",
+        "password": "sesac1234",
+        "dialect": "oracle"
+    },
+
+    "test" : {
+
+    }
+
+
+}
+
