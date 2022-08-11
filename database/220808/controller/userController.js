@@ -52,6 +52,15 @@ exports.login = (req, res) => {
     });
 }
 
+
+
+exports.patch_comment = (req, res) => {
+    User.update( req.body, function( result ){
+        console.log( result );
+        res.send ( "수정성공!" );
+    });
+} 
+
 // exports.update = (req, res) => {
 //     User.update(req.body, function(result){
 //         console.log(result);

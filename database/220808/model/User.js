@@ -23,19 +23,19 @@ exports.login = (id, pw, cb) => {
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
         console.log(rows);
-        cb(rows);
+        cb(rows);ㄴㄴ
         // rows에 내가 원하는 데이터가 들어갔음.
     });
 }
 
-// exports.update() = (data, cb) => {
-//     let sql = `UPDATE user SET id='${data.id}', pw='${data.pw}', name='${data.name}' WHERE id = ${data.id}`;
-//     cnn.query( sql, (err, rows) => {
-//         if( err ) throw err;
-//         cb( rows );
-//     })
+exports.update = (data, cb) => {
+    let sql = `UPDATE user SET id='${data.id}', pw='${data.pw}', name='${data.name}' WHERE id = ${data.id}`;
+    cnn.query( sql, (err, rows) => {
+        if( err ) throw err;
+        cb (rows);
+    })
+}
 
-// }
 
 // exports.delete = (id, pw, cb) => {
 //     var sql = "select * from user where id = '" + id + "' and pw = '" + pw + "'";
