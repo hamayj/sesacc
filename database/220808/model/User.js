@@ -23,7 +23,7 @@ exports.login = (id, pw, cb) => {
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
         console.log(rows);
-        cb(rows);ㄴㄴ
+        cb(rows);
         // rows에 내가 원하는 데이터가 들어갔음.
     });
 }

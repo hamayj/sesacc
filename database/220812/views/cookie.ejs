@@ -1,0 +1,32 @@
+<!-- 클라이언트가 저장된 쿠키를 가져오는것을 할 것임 -->
+<!-- 클라리언트가 볼 때 쿠키는 도큐먼트 안에 담겨 있음. 쿠키는 최상위에 존재함. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(document.cookie);
+        //  도큐먼트 안에 있는 값을 가져올때는 항상 =값을 썼음
+        document.cookie = "user=sesac; expires=Sat, 13 Aug 2022 13:00:00 GMT; path=/"; 
+        //만료일은 명확한 날짜를 적어주자. 옵션은 ; 로 구분
+        // 서버는 몇초 후에 종료해라 식으로 (상대적으로 적을 수 있는데), 클라는 절대적수치를 적어줘야 함.
+        // console.log(document.cookie);
+        //  클라이언트에서 쿠키를 설정하고 서버에서 보이는지 확인함.
+
+        var cookieArr = document.cookie.split(";");
+        // for (var i = 0; i < cookieArr.length; i++ )
+        for ( var i in cookieArr ){
+            console.log( cookieArr[i] );
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
