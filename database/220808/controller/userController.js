@@ -20,9 +20,10 @@ exports.post_register = (req, res) => {
 } 
 // 좀 이상하게 한 거 같긴 한데 ㅡㅡ... 어쨋거나..
 
-exports.login = (req, res) => {
-    res.render("login");
-}
+// 이렇게 render만 해서 띄워주면 안돼.
+// exports.login = (req, res) => {
+//     res.render("login");
+// }
 
 // exports.post_login = 
 
@@ -43,7 +44,7 @@ exports.login = (req, res) => {
         console.log(result[0]);
         if (result.length == 0) {
             res.redirect("/user");
-            // alert("login 실패🧑‍🎤");
+            // alert("login 실패🧑‍🎤"); // 동적 폼 아니라서 alert 실행 안됨.
         } else {
             res.render("login", {result: result[0]});
         }
