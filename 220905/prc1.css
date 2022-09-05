@@ -1,0 +1,25 @@
+.box {
+    font-size : 10em;
+}
+
+img {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .box {
+        width: 100%;
+        height: 100%;
+    }
+    .exp span {
+        display: none
+    }
+    .exp h3:after{
+        content : "unhappy Apple";
+        color: red;
+    }
+    .apple {
+        width: 50rem;
+        content: url("explode.jpeg");
+    }
+}
