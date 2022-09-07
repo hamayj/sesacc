@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <button type="button" onclick="btnClick1();">hello</button>
+    <button type="button" onclick="btnClick2();">study</button>
+    <button type="button" onclick="btnClick3();">bye</button>
+
+    <h5 id="content"></h5>
+
+    <script>
+        var socket = io.connect();
+        // 연결하는 함수. 접속.
+    
+    //socket.on 소켓을 받겠다. (이벤트명, 콜백함수) 
+    // socket이 처음으로 연결이 된거.
+        // socket.on("connect", function() {
+        //     console.log("server connected");
+        // });
+
+        //on : read / emit: write
+        socket.on("hello", function(data){
+            console.log("data : ", data);
+        });
+
+        function btnClick1(){
+            console.log("click1");
+            socket.emit("click1", "hello");
+            
+            socket.on("clickResponse1", function(data){
+            console.log("response : ", data);
+            let tag = document.getElementById("content");
+            // document  지금 문서에서 id속성 값이 content인 요소를 선택한다.
+            // id="content" 인 요소가 h5태그.
+            // 즉, 선택된 거는 <h5 id="content">~~</h5>
+            
+            // 내가 선택한 요소의 내용을 data로 바꾸겠다.
+            // document에서 내용을 바꾸겠다는 거는 <> </> 시작태그와 종료태그 사이에 내용을 넣겠다.
+            tag.textContent = data;
+        });
+        };
+
+        function btnClick2(){
+            console.log("click2");
+            socket.emit("click2", "study");
+            
+            socket.on("clickResponse2", function(data){
+            console.log("response : ", data);
+            });
+            let tag2 = document.getElementById("content");
+            tag2.textContent = data;
+        };
+
+        function btnClick3(){
+            console.log("click3");
+            socket.emit("click3", "bye");
+
+            socket.on("clickResponse3", function(data3){
+            console.log("response : ", data3);
+            }); 
+            let tag3 = document.getElementById("content");
+            tag3.textContent = data3;
+        };
+        
+    </script>
+    
+    
+</body>
+</html>

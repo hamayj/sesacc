@@ -1,0 +1,44 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+
+    <style>
+        .chat-list {
+            background-color: skyblue;
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="chat-list" class="chat-list"></div>
+    <input type="text" id="message">
+    <button type="button" onclick="send();">전송</button>
+    <script>
+        var socket = io.connect();
+
+        function send(){
+            let msg = document.getElementById("message").value;
+            // 값 가져오기.
+            socket.emit("send", msg);
+            // send로 msg에 보낼거.
+        };
+        socket.on("newMessage", function(msg){
+            let chat_list = document.getElementById("chat-list");
+            let div = document.createElement("div");
+            // div가 하나 생김.
+
+            div.textContent = msg;
+            chat_list.appendChild(div);
+            // append는 뒤에다 붙여넣는애. 덮어쓰기가 아님.
+        });
+    </script>
+</body>
+</html>
