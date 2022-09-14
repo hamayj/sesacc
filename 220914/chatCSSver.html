@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js">
+    </script>
+    <style>
+        .chat-list {
+            background-color: skyblue;
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+        }
+
+        .chat-list div div {
+            display: inline-block;
+            padding: 3px;
+        }
+
+        .my-chat {
+            text-align: right;
+        }
+
+        .my-chat div {
+            background-color: yellow;
+            position: relative;
+            border-radius: 8px;
+            /* 10%로 주니까 작다고해서 px로 수정하니 아주 좋아 */
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .my-chat div:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 0.3em solid transparent;
+            border-left-color: yellow;
+            border-right: 0;
+            margin-top: -0.3em;
+            margin-right: -0.3em;
+        }
+
+        .other-chat div {
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            padding: 5px;
+            margin: 5px;
+            
+        }
+
+        .other-chat div:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 0.3em solid transparent;
+            border-right-color: white;
+            border-left: 0;
+            margin-top: -0.3em;
+            margin-left: -0.3em;
+        }
+
+    </style>
+    <script src="chatPrc3"></script>
+</head>
+
+<body>
+    <div id="chat-list" class="chat-list"></div>
+    <select id="nick-list">
+        <!-- 선택할 수 있는 선택지 주는 태그 -->
+        <option value="전체">전체</option>
+        <!-- 왜 value를 전체로 줬지? -->
+    </select>
+    <input type="text" id="message">
+    <button type="button" onclick="send();">전송</button>
+    <script>
+        var nickname = prompt("닉네임을 입력해주세요.");
+        // prompt : alert창처럼 뜨는건데 값을 입력할 수 있는 형태.
+        var socket = io.connect();
+        socket.emit("info2", { nickname: nickname });
+        //40번째 라인에서 nickname을 받아뒀었음.
+        var input = document.querySelector('input');
+        input.addEventListener('keypress', ({key}) => {
+            if (key != 'Enter') {return}
+            send();
+        })
+
+        function send() {
+            let msg = document.getElementById("message").value;
+            let nick = document.getElementById("nick-list").value;
+            socket.emit("send", { msg: msg, to:nick });
+            document.getElementById("message").value = "";
+        } 
+
+        socket.on("newMessage", function (data) {
+            let chat_list = document.getElementById("chat-list");
+            let div = document.createElement("div"); 
+            let div_chat = document.createElement("div"); 
+            let span = document.createElement("span");
+            div_chat.textContent = data.msg; 
+            
+            if (data.is_dm) div_chat.textContent = "(DM)" + div_chat.textContent;
+            div_chat.setAttribute('style', "color : salmon");
+            if (data.nickname == nickname) { div.classList.add("my-chat");}
+            // div의 클래스에 my-chat을 추가한다.
+            // <div class="my-chat"></div>
+            else {
+                span.textContent = data.nickname;
+                div.appendChild(span);
+                div.classList.add("other-chat");
+            }
+            
+            // div => <div class="my-chat"></div>
+            
+
+            div.appendChild(div_chat);
+            // <div class="my-chat">
+                // <div>{msg}</div>
+            // </div>
+            chat_list.appendChild(div);
+        });
+
+        socket.on("notice", function(data){
+            let chat_list = document.getElementById("chat-list");
+            let div = document.createElement("div"); // <div></div>
+            div.textContent = data;
+            div.setAttribute('style', "text-align: center");
+            chat_list.appendChild(div);
+        });
+
+        socket.on("list", function(list){
+            let nick_list = document.getElementById("nick-list");
+            while(nick_list.firstChild) {
+                nick_list.removeChild(nick_list.lastChild);
+            }
+            let option = document.createElement("option");
+            option.text = "전체";
+            option.value = "전체";
+            nick_list.appendChild(option);
+
+            // entries()  
+            for(let [key, value] of Object.entries(list)){
+                let option = document.createElement("option");
+                option.text = value;
+                option.value = value;
+                nick_list.appendChild(option);
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -54,20 +54,20 @@
             
             socket.on("clickResponse2", function(data){
             console.log("response : ", data);
-            });
-            let tag2 = document.getElementById("content");
-            tag2.textContent = data;
+            let tag = document.getElementById("content");
+            tag.textContent = data;
+        });
         };
 
         function btnClick3(){
             console.log("click3");
             socket.emit("click3", "bye");
 
-            socket.on("clickResponse3", function(data3){
-            console.log("response : ", data3);
-            }); 
-            let tag3 = document.getElementById("content");
-            tag3.textContent = data3;
+            socket.on("clickResponse3", function(data){
+            console.log("response : ", data);
+            let tag = document.getElementById("content");
+            tag.textContent = data;
+        }); 
         };
         
     </script>
