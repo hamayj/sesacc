@@ -1,4 +1,5 @@
 var express = require("express");
+const { send } = require("process");
 var app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
@@ -9,6 +10,7 @@ app.get("/", function(req,res){
 });
 
 var list = {};
+
 
 io.on("connection", function(socket){
     console.log("connected: ", socket.id);
@@ -40,6 +42,15 @@ io.on("connection", function(socket){
         io.emit("notice", list[socket.id] + "님이 퇴장하셨습니다.");
         delete list[socket.id];
     });
+
+    socket.on("chatList", (data) => {
+        chatList = data;
+        let msg = chatList[chatList.length - 1];
+        if (msg.room == currentRoomNo) addChat(msg.sendId, msg.chatContent);
+    });
+
+    
+    
 });
 
 http.listen( 8000, function(){

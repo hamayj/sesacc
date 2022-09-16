@@ -1,14 +1,57 @@
 <html>
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: rgba(25, 147, 147, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(25, 147, 147, 0.2);
+        }
+
+        @media (min-width: 768px){
+            #chat-box {
+                width: 768px;
+            }
+        }
+
+        #chat-box {
+            width: 50vw;
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .chat-list {
-            background-color: skyblue;
-            width: 50%;
-            height: 50%;
+            background-color: #C3F8FF;
+            border-radius: 8px;
+            width: 50vw;
+            height: 50vw;
             padding: 10px;
+            position: relative;
+            overflow-y: scroll;
+            overflow-x: hidden;   
+        }
+        
+        input {
+            width: 40vw;
         }
 
         .chat-list div div {
@@ -19,9 +62,18 @@
         .my-chat {
             text-align: right;
         }
+        
+        .footer-outer {
+            position: relative;
+        }
+
+        .footer-inner {
+            position: absolute;        
+            bottom: 5px;
+        }
 
         .my-chat div {
-            background-color: yellow;
+            background-color: #FFF6BF;
             position: relative;
             border-radius: 8px;
             /* 10%로 주니까 작다고해서 px로 수정하니 아주 좋아 */
@@ -37,14 +89,14 @@
             width: 0;
             height: 0;
             border: 0.3em solid transparent;
-            border-left-color: yellow;
+            border-left-color: #FFF6BF;
             border-right: 0;
             margin-top: -0.3em;
             margin-right: -0.3em;
         }
 
         .other-chat div {
-            background-color: white;
+            background-color: #ABD9FF;
             position: relative;
             border-radius: 8px;
             padding: 5px;
@@ -60,36 +112,65 @@
             width: 0;
             height: 0;
             border: 0.3em solid transparent;
-            border-right-color: white;
+            border-right-color: #ABD9FF;
             border-left: 0;
             margin-top: -0.3em;
             margin-left: -0.3em;
         }
 
+        .header{
+            height: 70px;
+            left: 8px;
+            right: 8px;
+            border-bottom: 1px solid border;
+            position: fixed;
+            background-color: headerfooter;
+            z-index: 1000;
+}
+
     </style>
-    <script src="chatPrc3"></script>
+    <script src="chatCSSver.js"></script>
 </head>
 
 <body>
-    <div id="chat-list" class="chat-list"></div>
-    <select id="nick-list">
-        <!-- 선택할 수 있는 선택지 주는 태그 -->
-        <option value="전체">전체</option>
-        <!-- 왜 value를 전체로 줬지? -->
-    </select>
-    <input type="text" id="message">
-    <button type="button" onclick="send();">전송</button>
+    <div id="chat-box">
+        <!-- <section class="header clearfix">
+            <div class="back">
+                <a href="#">Messages</a>
+            </div>
+            <div class="username">
+                <h1>🌱새싹톡🌱</h1>
+            </div>
+            <div class="contacts">
+                <a href="#">Contacts</a>
+            </div>
+        </section> -->
+        <div id="chat-list" class="chat-list">
+            <!-- <div class="footer-outer"> -->
+                <div class="footer-inner">
+                    <select id="nick-list">
+                        <!-- 선택할 수 있는 선택지 주는 태그 -->
+                        <option value="전체">전체</option>
+                    </select>
+                    <input type="text" id="message" placeholder="Type something...">
+                    <button type="button" onclick="send();">send</button>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
     <script>
         var nickname = prompt("닉네임을 입력해주세요.");
         // prompt : alert창처럼 뜨는건데 값을 입력할 수 있는 형태.
         var socket = io.connect();
         socket.emit("info2", { nickname: nickname });
         //40번째 라인에서 nickname을 받아뒀었음.
+
         var input = document.querySelector('input');
         input.addEventListener('keypress', ({key}) => {
             if (key != 'Enter') {return}
             send();
-        })
+        }) //JS파일에 적었더니 ReferenceError: document is not defined 에러 발생.
 
         function send() {
             let msg = document.getElementById("message").value;
@@ -105,8 +186,10 @@
             let span = document.createElement("span");
             div_chat.textContent = data.msg; 
             
-            if (data.is_dm) div_chat.textContent = "(DM)" + div_chat.textContent;
-            div_chat.setAttribute('style', "color : salmon");
+            if (data.is_dm) {
+                div_chat.textContent = "(DM)" + div_chat.textContent;
+                div_chat.setAttribute('style', "color : salmon");
+            }
             if (data.nickname == nickname) { div.classList.add("my-chat");}
             // div의 클래스에 my-chat을 추가한다.
             // <div class="my-chat"></div>
