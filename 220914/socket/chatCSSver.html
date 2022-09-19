@@ -47,7 +47,7 @@
             padding: 10px;
             position: relative;
             overflow-y: scroll;
-            overflow-x: hidden;   
+            /* overflow-x: hidden;    */
         }
         
         input {
@@ -70,6 +70,8 @@
         .footer-inner {
             position: absolute;        
             bottom: 5px;
+            padding-left: 4%;
+            padding-bottom: 1%;
         }
 
         .my-chat div {
@@ -134,31 +136,19 @@
 
 <body>
     <div id="chat-box">
-        <!-- <section class="header clearfix">
-            <div class="back">
-                <a href="#">Messages</a>
-            </div>
-            <div class="username">
-                <h1>🌱새싹톡🌱</h1>
-            </div>
-            <div class="contacts">
-                <a href="#">Contacts</a>
-            </div>
-        </section> -->
         <div id="chat-list" class="chat-list">
-            <!-- <div class="footer-outer"> -->
-                <div class="footer-inner">
+        </div>
+        <div class="footer-outer">
+            <div class="footer-inner">
                     <select id="nick-list">
                         <!-- 선택할 수 있는 선택지 주는 태그 -->
                         <option value="전체">전체</option>
                     </select>
                     <input type="text" id="message" placeholder="Type something...">
                     <button type="button" onclick="send();">send</button>
-                </div>
-            <!-- </div> -->
+            </div>
         </div>
     </div>
-
     <script>
         var nickname = prompt("닉네임을 입력해주세요.");
         // prompt : alert창처럼 뜨는건데 값을 입력할 수 있는 형태.
