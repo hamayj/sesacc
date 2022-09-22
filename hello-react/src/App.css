@@ -1,0 +1,92 @@
+
+span {
+  text-decoration: underline;
+}
+
+.container {
+  width: 500px;
+  text-align: center;
+  justify-content: center;
+  display: center;
+  align-items: center;
+}
+
+.test {
+  background-color:bisque;
+  color: orange;
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  font-size:x-large;
+  /* 글자 세로로 하고 싶어서 쇼하는 중 */
+  /* line-height: 100px; */
+  align-items: center;
+  /* margin-left: 200px;
+  margin-right: 200px; */
+}
+
+.inputs {
+  margin : auto;
+  text-align: center;
+}
+
+/* 실습 6 */
+
+ 
+.rainbowContainer {
+  display: inline-flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+  width:100%;
+  justify-content: center;
+  flex-wrap:nowrap;
+}
+
+.red {
+  background-color: red;
+  width: 5em;
+  height: 10em;
+}
+
+.orange {
+  background-color: orange;
+  width: 5em;
+  height: 12em;
+}
+
+.yellow {
+  background-color: yellow;
+  width: 5em;
+  height: 14em;
+}
+
+.green {
+  background-color: green;
+  width: 5em;
+  height: 16em;
+}
+
+.blue {
+  background-color: blue;
+  width: 5em;
+  height: 18em;
+}
+
+.navy {
+  background-color: navy;
+  width: 5em;
+  height: 20em;
+}
+
+.purple {
+  background-color: purple;
+  width: 5em;
+  height: 22em;
+}
+
+/* div {
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+} */
+
