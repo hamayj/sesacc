@@ -1,20 +1,28 @@
 import React, {Fragment, Component} from 'react';
 import './App.css'; // 불러오는 코드
-import MyComponent from './MyComponent';
-import MyComponent2 from './MyComponent2';
-import MyComponent3 from './MyComponent3';
+// import MyComponent from './MyComponent';
+// import MyComponent2 from './MyComponent2';
+// import MyComponent3 from './MyComponent3';
+import Event from "./Event";
 
 const App = () => {
-  return (
-    <div>
-      <MyComponent />
-      <MyComponent2 />
-      <MyComponent3 />
-    </div>
-  );
-};
+  return <Event />
+}
 
 export default App;
+
+
+// const App = () => {
+//   return (
+//     <div>
+//       <MyComponent />
+//       <MyComponent2 />
+//       <MyComponent3 />
+//     </div>
+//   );
+// };
+
+
 
 // App이라는 컴포넌트를 생성.
 // 함수형 컴포넌트
