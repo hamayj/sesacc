@@ -1,6 +1,20 @@
-import React, {Fragment} from 'react';
-import logo from './logo.svg';
+import React, {Fragment, Component} from 'react';
 import './App.css'; // 불러오는 코드
+import MyComponent from './MyComponent';
+import MyComponent2 from './MyComponent2';
+import MyComponent3 from './MyComponent3';
+
+const App = () => {
+  return (
+    <div>
+      <MyComponent />
+      <MyComponent2 />
+      <MyComponent3 />
+    </div>
+  );
+};
+
+export default App;
 
 // App이라는 컴포넌트를 생성.
 // 함수형 컴포넌트
@@ -68,15 +82,15 @@ import './App.css'; // 불러오는 코드
 // 실습 4 두번째 시도! -> 일단 포기. 답보고 맞춤 😂
 // 틀린 이유. 최상위 태그를 안만들어줬고, 
 // 전체를 {}로 감싸지 않고 {a}{b} 따로따로 씀
-function App(){
-  const a = 100;
-  const b = 5;
-  return (
-    <>
-        { a > b  && <div>a가 b보다 큽니다.</div> }
-    </>
-  )
-}
+// function App(){
+//   const a = 100;
+//   const b = 5;
+//   return (
+//     <>
+//         { a > b  && <div>a가 b보다 큽니다.</div> }
+//     </>
+//   )
+// }
 
 //실습5 하악...-_ㅠ 중앙 정렬 🐶힘들군.
 // function App() {
@@ -114,4 +128,12 @@ function App(){
 //         </>
 //     );
 // }
-export default App;
+
+// 클래스형 컴포넌트
+// class App extends Component {
+//   render() {
+//     const name = 'react';
+//     return <div className="react">{name}</div>;
+//   }
+// }
+// export default App;
