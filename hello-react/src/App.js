@@ -25,13 +25,22 @@ import FoodComponent from './prcProps1';
 //   )
 // }
 
-import BookComponent from './prcProps2';
+//props prc2
+// import BookComponent from './prcProps2';
+// const App = () => {
+//   return (
+//     <BookComponent title="나의 하루는 4시 40분에 시작된다." author="김유진" price="13,500" type="자기계발서"></BookComponent>
+//   )
+// }
+
+//props prc3
+import Prc from './prcProps3';
+
 const App = () => {
   return (
-    <BookComponent title="나의 하루는 4시 40분에 시작된다." author="김유진" price="13,500" type="자기계발서"></BookComponent>
-  )
+    <Prc text="App 컴포넌트에서 넘겨준 text props입니다." valid="콘솔 띄우기 성공!"></Prc>
+  );
 }
-
 export default App;
 
 
