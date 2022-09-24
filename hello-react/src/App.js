@@ -8,8 +8,12 @@ import MyComponent from './MyComponent';
 // import Test2 from "./Test2.js"
 
 const App = () => {
-  return <MyComponent name={3}>리액트</MyComponent>;
-};
+  return (
+  <MyComponent name="React" favoriteNumber={2}>
+    리액트
+  </MyComponent>
+  );
+}
 
 export default App;
 
