@@ -3,7 +3,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'; 
 
+
 class MyComponentS extends Component {
+    // 클래스형 컴포넌트에서 defaultProps와 propTypes를 설정할 때
+    // class 내부에서 지정하기
+    static defaultProps = {
+        name: '기본 이름'
+    };
+    
+    
+    static propTypes = {
+        name : PropTypes.string,
+        favoriteNumber : PropTypes.number.isRequired
+    }; // name 값은 무조건 문자열형태로 전달됨.
+    
+
     render() {
         const {name, favoriteNumber, children} = this.props;
 
@@ -19,13 +33,13 @@ class MyComponentS extends Component {
     }
 }
 
-MyComponentS.defaultProps = {
-    name: '기본 이름'
-};
+// MyComponentS.defaultProps = {
+//     name: '기본 이름'
+// };
 
-MyComponentS.propTypes = {
-    name : PropTypes.string,
-    favoriteNumber : PropTypes.number.isRequired
-}; // name 값은 무조건 문자열형태로 전달됨.
+// MyComponentS.propTypes = {
+//     name : PropTypes.string,
+//     favoriteNumber : PropTypes.number.isRequired
+// }; // name 값은 무조건 문자열형태로 전달됨.
  
 export default MyComponentS;
