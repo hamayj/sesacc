@@ -19,7 +19,7 @@ import React, {Component} from 'react';
 //         );
 //     }
 // }
-
+import PropTypes from 'prop-types'; // propTypes 불러오기
 const MyComponent = ({name, children}) => {
     // const {name, children} = props;
     return (
@@ -35,4 +35,8 @@ MyComponent.defaultProps = {
     name: '기본 이름'
 };
 
+MyComponent.propTypes = {
+    name : PropTypes.string
+}; // name 값은 무조건 문자열형태로 전달됨.
+ 
 export default MyComponent;
