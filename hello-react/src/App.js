@@ -19,9 +19,16 @@ import './App.css'; // 불러오는 코드
 
 import FoodComponent from './prcProps1';
 
+// const App = () => {
+//   return (
+//     <FoodComponent food="양갈비꼬치 + 지삼선 + 향라대하 + 연태고량주"></FoodComponent>
+//   )
+// }
+
+import BookComponent from './prcProps2';
 const App = () => {
   return (
-    <FoodComponent food="양갈비꼬치 + 지삼선 + 향라대하 + 연태고량주"></FoodComponent>
+    <BookComponent title="나의 하루는 4시 40분에 시작된다." author="김유진" price="13,500" type="자기계발서"></BookComponent>
   )
 }
 

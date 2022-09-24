@@ -90,3 +90,28 @@ span {
   justify-content: center;
 } */
 
+/* props 실습2 */
+
+.cover {
+  width: 200px;
+  height: 280px;
+}
+
+.bookContainer {
+  width: 500px;
+  height: 600px;
+  background-color: beige;
+  padding: 5%;
+  position: relative;
+  justify-items: center;
+  justify-content: center;
+}
+
+.bookTop {
+  color : orange;
+  font-size : x-large;
+  font-weight : bold;
+  justify-items: center;
+  justify-content: center;
+  left: 50%;
+}
