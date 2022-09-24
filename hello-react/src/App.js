@@ -1,15 +1,30 @@
 import React, {Fragment, Component} from 'react';
 import './App.css'; // 불러오는 코드
-// import MyComponent from './MyComponent';
+import MyComponent from './MyComponent';
 // import MyComponent2 from './MyComponent2';
 // import MyComponent3 from './MyComponent3';
-import Event from "./Event";
+// import Event from "./Event";
+// import Test from "./Test.js";
+// import Test2 from "./Test2.js"
 
 const App = () => {
-  return <Event />
-}
+  return <MyComponent>리액트</MyComponent>;
+};
 
 export default App;
+
+
+
+// component실습
+// const App = () => {
+//   return (
+//     <div>
+//       <Test />
+//       <Test2 />
+//     </div>
+//   );
+// }
+// export default App;
 
 
 // const App = () => {
