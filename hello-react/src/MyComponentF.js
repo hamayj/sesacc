@@ -20,7 +20,7 @@ import React, {Component} from 'react';
 //     }
 // }
 import PropTypes from 'prop-types'; // propTypes 불러오기
-const MyComponent = ({name, favoriteNumber, children}) => {
+const MyComponentF = ({name, favoriteNumber, children}) => {
     // const {name, children} = props;
     return (
         <div> 
@@ -33,13 +33,13 @@ const MyComponent = ({name, favoriteNumber, children}) => {
     );
 };
 
-MyComponent.defaultProps = {
+MyComponentF.defaultProps = {
     name: '기본 이름'
 };
 
-MyComponent.propTypes = {
+MyComponentF.propTypes = {
     name : PropTypes.string,
     favoriteNumber : PropTypes.number.isRequired
 }; // name 값은 무조건 문자열형태로 전달됨.
  
-export default MyComponent;
+export default MyComponentF;
