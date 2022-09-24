@@ -7,14 +7,22 @@ import './App.css'; // 불러오는 코드
 // import Test from "./Test.js";
 // import Test2 from "./Test2.js"
 
-import MyComponentS from './MyComponentS';
+// import MyComponentS from './MyComponentS';
+
+// const App = () => {
+//   return (
+//   <MyComponentS name="React" favoriteNumber={2}>
+//     리액트
+//   </MyComponentS>
+//   );
+// }
+
+import FoodComponent from './prcProps1';
 
 const App = () => {
   return (
-  <MyComponentS name="React" favoriteNumber={2}>
-    리액트
-  </MyComponentS>
-  );
+    <FoodComponent food="양갈비꼬치 + 지삼선 + 향라대하 + 연태고량주"></FoodComponent>
+  )
 }
 
 export default App;
