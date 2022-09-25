@@ -35,18 +35,24 @@ import './App.css'; // 불러오는 코드
 // }
 
 //props prc3
-import Prc from './prcProps3';
+// import Prc from './prcProps3';
+
+// const App = () => {
+//   const prcFunc = () => {
+//     console.log("콘솔 띄우기 성공!");
+//   } // App.js에서 function Prop을 만들어서 다른 컴포넌트로 전달해주고 있음.
+  
+//   return (
+//     <Prc text="App 컴포넌트에서 넘겨준 text props입니다." 
+//     valid={ prcFunc } />
+//   );
+// }
+
+import Counter  from './Counter';
 
 const App = () => {
-  const prcFunc = () => {
-    console.log("콘솔 띄우기 성공!");
-  } // App.js에서 function Prop을 만들어서 다른 컴포넌트로 전달해주고 있음.
-  
-  return (
-    <Prc text="App 컴포넌트에서 넘겨준 text props입니다." 
-    valid={ prcFunc } />
-  );
-}
+  return <Counter />;
+};
 export default App;
 
 
