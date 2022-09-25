@@ -48,12 +48,12 @@ import './App.css'; // 불러오는 코드
 //   );
 // }
 
-import Counter  from './Counter';
+// import Counter  from './Counter';
 
-const App = () => {
-  return <Counter />;
-};
-export default App;
+// const App = () => {
+//   return <Counter />;
+// };
+// export default App;
 
 
 
@@ -202,3 +202,11 @@ export default App;
 //   }
 // }
 // export default App;
+
+import Say from './Say';
+
+const App = () => {
+  return <Say />;
+};
+
+export default App;
