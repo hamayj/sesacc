@@ -8,9 +8,9 @@ const BookComponent = (props) => {
             <div className="bookTop">
                 이번주 베스트셀러<br/><br/>
                 <img className="cover" src={cover}></img> <br/>
-                <br/> {title} <br/><br/>
+                <br/> <span style={{color:"black", textDecoration:"none"}}>{title}</span> <br/><br/>
             </div>   
-            <div className="contents">
+            <div className="contents" style={{fontWeight:"bold"}}>
                 저자: {author}<br/>
                 판매가: {price}원<br/>
                 구분: {type}

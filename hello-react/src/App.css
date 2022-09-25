@@ -105,6 +105,7 @@ span {
   position: relative;
   justify-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .bookTop {
@@ -114,4 +115,8 @@ span {
   justify-items: center;
   justify-content: center;
   left: 50%;
+}
+
+.contents {
+  text-align: left;
 }

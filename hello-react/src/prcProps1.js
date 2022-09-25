@@ -2,11 +2,11 @@ import React, {Component} from "react";
 
 const FoodComponent = props => {
     const {food} = props;
-    const style = { color : "red" }
+    // const styleR = { color : "red" }
     return (        
         <div>
             <p>많이🥰드세요많😎이드세요많이드세😉요</p>
-            <p>아~ {food} 좋아하시는군요 💯</p>
+            아~ <span style={{color:"red", textDecoration:"none"}}>{food}</span> 좋아하시는군요 💯
             <p>많이🥰드세요많😎이드세요많이드세😉요</p>
         </div>
     )

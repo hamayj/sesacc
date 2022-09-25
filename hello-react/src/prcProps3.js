@@ -7,7 +7,7 @@ class Prc extends Component {
         return(
             <div>
                 {text} <br/><br/>
-                <button onClick={console.log({valid})}>콘솔 메세지</button>                
+                <button onClick={valid}>콘솔 메세지</button>                
             </div>
 
         );
@@ -18,8 +18,8 @@ Prc.defaultProps = {
     text : "이건 기본 text props입니다."
 };
 
-// Prc.PropTypes = {
-//     text: PropTypes.string.isRequired,
-// };
+Prc.propTypes = {
+    text: PropTypes.string.isRequired
+};
 
 export default Prc;
