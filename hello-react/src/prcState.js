@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class prcState extends Component {
+class PrcState extends Component {
     state = {
         number: 0
     }
@@ -20,9 +20,17 @@ class prcState extends Component {
                     }}
                 >+2</button>
                 <button
-                    onClick={}
+                    onClick={ () => {
+                        this.setState(prevState => {
+                            return {
+                                number : prevState.number -1
+                            }
+                        });
+                    }}
                 >-1</button>
             </div>
         )
     }
 }
+
+export default PrcState;

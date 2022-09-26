@@ -210,9 +210,20 @@ import './App.css'; // 불러오는 코드
 // };
 
 
-import Sample from './Sample';
+// import PrcState from './prcState';
+// const App = () => {
+//   return <PrcState />;
+// }
+
+import PrcUseState from './prcUseState';
 const App = () => {
-  return <Sample />;
-};
+  return <PrcUseState />;
+}
+
+
+// import Sample from './Sample';
+// const App = () => {
+//   return <Sample />;
+// };
 
 export default App;
