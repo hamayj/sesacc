@@ -6,7 +6,15 @@ const Event = () => {
     const onChangeUsername = (e) => setUsername(e.target.value);
     const onChangeMessage = (e) => setUsername(e.target.value);
     const onClick = () => {
-        
-    }
+        alert(username + ": " + message);
+        setUsername("");
+        setMessage("");
+    };
 
-}
+    const onKeyPress = (e) => {
+        if(e.key === "Enter") {
+            onClick();
+        }
+    }
+};
+
