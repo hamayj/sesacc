@@ -203,10 +203,16 @@ import './App.css'; // 불러오는 코드
 // }
 // export default App;
 
-import Say from './Say';
+// import Say from './Say';
 
+// const App = () => {
+//   return <Say />;
+// };
+
+
+import Sample from './Sample';
 const App = () => {
-  return <Say />;
+  return <Sample />;
 };
 
 export default App;
