@@ -1,3 +1,4 @@
+import React, {Fragment, Component} from 'react';
 
 function App() {
   return (
