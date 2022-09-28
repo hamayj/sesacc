@@ -14,7 +14,7 @@ class Ref extends Component {
     event3 = () => {
         console.log(this.input3.current.value);
     }
-    // 클래스에서는 화살표 함수 처리를 해줘야함. bind를 걸거나
+    // 클래스에서는 화살표 함수 처리를 해줘야함. bind를 걸거나 (this를 쓸거면)
 
     render() {
         return (
