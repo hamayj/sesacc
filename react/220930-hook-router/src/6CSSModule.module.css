@@ -1,0 +1,14 @@
+.box1 {
+    background-color: yellow;
+    border: 3px solid orange;
+    color: green;
+    display: flex;
+    height: 150px;
+    align-items: center;
+}
+
+.center {
+    justify-content: center;
+}
+
+/* 클래스 이름을 흔하게 적어도 특정 컴포넌트에서만 쓸 수 있다는 것을 보여주려고 함. */

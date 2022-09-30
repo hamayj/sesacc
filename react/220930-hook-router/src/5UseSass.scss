@@ -1,0 +1,69 @@
+@import './util.scss';
+// util에 몰아넣어줬음.
+
+// @import '../node_modules/include-media/dist/include-media'
+// 반응형 디자인을 쉽게 만들어 줌.
+@import '~include-media/dist/include-media';
+// node_module전까지를 찾을 수 있게 해줌.
+@import '~open-color/open-color';
+
+
+
+
+// 자식 클래스에 걸기 , 형제 클래스에 걸기.
+.UseSass {
+    display: flex;
+    background: $oc-gray-2;
+    // opencolor library에 지정해놓은 컬러를 가져왔음.
+
+    @include media('<768px') {
+        background: $oc-gray-9;
+    } // util로 빼서 못씀 media는.
+
+    .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+            // .box.red
+        &.red {
+            @include boxsize(1);
+            background: $red;
+            &:hover{
+                cursor: help;
+            } 
+            //이렇게 써주면 .box.red:hover라는 뜻.
+        }
+        &.orange {
+            @include boxsize(2);
+            background: $orange;
+        }
+        &.yellow {
+            @include boxsize(3);
+            background: $yellow;
+        }
+        &.green {
+            @include boxsize(4);
+            background: $green;
+        }
+
+        &.blue {
+            @include boxsize(5);
+            background: $blue;
+        }
+        &.indigo {
+            @include boxsize(6);
+            background: $indigo;
+        }
+        &.green {
+            @include boxsize(7);
+            background: $green;
+        }
+
+        // .box:hover
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}
+

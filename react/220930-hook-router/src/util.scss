@@ -1,0 +1,13 @@
+$red : red;
+$orange : orange;
+$yellow : yellow;
+$green : green;
+$blue : blue;
+$indigo: indigo;
+$purple : purple;
+
+@mixin boxsize($size) {
+    width: 100px;
+    height: 20px* $size;
+} // 재사용 가능한 코드를 작성할 때.
+// 5UseSass.scss에서 사용했음.
