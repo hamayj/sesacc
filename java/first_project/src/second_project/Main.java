@@ -1,6 +1,7 @@
 package second_project;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -11,13 +12,21 @@ public class Main {
 		test.testMethod();
 		
 		// 실습 과제 : 클래스 
+//		System.out.println("사각형의 가로와 세로 길이를 띄어쓰기를 기준으로 입력해주세요.");
+//		Scanner scanner = new Scanner(System.in);
+//		int width = scanner.nextInt();
+//		int height = scanner.nextInt();
+//		Rectangle rectangle = new Rectangle(width, height);
+//		
+//		System.out.println(rectangle.rectangle());
+		
+		// 실습 과제 3: getter, setter 사용.
 		System.out.println("사각형의 가로와 세로 길이를 띄어쓰기를 기준으로 입력해주세요.");
 		Scanner scanner = new Scanner(System.in);
-		int width = scanner.nextInt();
-		int height = scanner.nextInt();
-		Rectangle rectangle = new Rectangle(width, height);
+		ArrayList<Integer> arrayList = new ArrayList<>();
 		
-		System.out.println(rectangle.rectangle());
+		
+		
 		
 		
 //		Scanner scanner = new Scanner(System.in);

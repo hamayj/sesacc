@@ -1,5 +1,7 @@
 package second_project;
 
+import third.Third;
+
 public class Test {
 	//클래스 안에서 변수 선언하기
 	public int num; //자료형 필드
@@ -22,5 +24,8 @@ public class Test {
 	
 	public void testMethod() {
 		System.out.println("test");
+		Third sec = new Third();
+		// int a = sec.num; num필드가 protected여서 가져오지 못함. 
+		// 다른 패키지에 있어도 자식클래스면 허용한다?
 	}
 }
