@@ -2,32 +2,32 @@ package second_project;
 
 
 public class Rectangle {
-	public int width; // 1. 필드 선언 (클래스 내의 전역 변수)
-	private int height;
+	public int width, height; // 1. 필드 선언 (클래스 내의 전역 변수)
 	
-	public Rectangle(int width, int height) { // 2. 생성자 (생성자명은 클래스명과 같아야 함)
+	public Rectangle(int width) { // 2. 생성자 (생성자명은 클래스명과 같아야 함)
 		this.width = width;
-		this.height = height;
+//		this.height = height;
 	}
+
 	
-	// getter : 메소드 내 width를 리턴해주는 메소드를 만들 것.
 	public int getWidth() {
-		return width;
+		return width; // 다른 클래스에서 width값을 가져오고 싶어서 사용.타 클래스에서 쓸 수 있도록 return
 	}
+
+	public void setWidth(int width) {
+		this.width = width; // 타 클래스에서 width값을 조정하고 싶어서 사용하는 setter. public 접근제어자로 써주기.
+	}
+
 	public int getHeight() {
 		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 	public int rectangle() {
 		return width * height; // 3. 메소드 생성 
 	}
 
-	// setter : 상단 source에서 generate getter, setter를 사용해서 만들 수 있다.
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
 }
