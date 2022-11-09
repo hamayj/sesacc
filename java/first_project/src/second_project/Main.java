@@ -20,7 +20,7 @@ public class Main {
 //		
 //		System.out.println(rectangle.rectangle());
 		
-		Rectangle.getPi(); // Static 변수는 이탤릭체로 표시돼있음.
+		 // Static 변수는 이탤릭체로 표시돼있음.
 //	어차피 동일한 값이기 떄문에 메모리 낭비를 할 필요가 없음. 클래스가 만들어질 때 공간 하나를 할당 받는.
 //		Rectangle.setHeight(1); 객체를 만들어야만 볼 수 있음.
 		
@@ -52,12 +52,8 @@ public class Main {
 			System.out.println("넓이는: "+ value.rectangle());
 			System.out.println("-----------------------");
 		}
-		
-		
-		
-
-		
-		
+		// rect.getCount()로 풀려고 했는데, Rectangle.getCount()가 맞음.
+		System.out.println("Rectangle 인스턴스의 개수는: " + Rectangle.getCount());
 		
 		
 		
