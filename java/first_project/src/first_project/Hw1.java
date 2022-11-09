@@ -11,13 +11,13 @@ public class Hw1 {
 		
 		int age = scanner.nextInt();
 		
-		if ( 0 < age < 8 ) {
+		if ( 0 < age && age < 8 ) {
 			System.out.println("유아 ");
-		} else if ( 7 < age < 14 ) {
+		} else if ( 7 < age&& age < 14 ) {
 			System.out.println("초등학생 ");
-		} else if ( 13 < age < 17 ) {
+		} else if ( 13 < age && age < 17 ) {
 			System.out.println("중학생 ");
-		} else if ( 16 < age < 20 ) {
+		} else if ( 16 < age && age < 20 ) {
 			System.out.println("고등학생 ");
 		} else {
 			System.out.println("성인 ");

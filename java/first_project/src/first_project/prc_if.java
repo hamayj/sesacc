@@ -1,3 +1,4 @@
+package first_project;
 
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class prc_if {
 		String str = '홍길동';
 		String str2 = '홍길동';
 		
-		if (str =="홍길동") {
+		if (str == "홍길동") {
 			System.out.println("남자");
 		}
 		else {
