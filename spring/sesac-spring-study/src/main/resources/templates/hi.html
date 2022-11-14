@@ -6,5 +6,35 @@
 </head>
 <body>
         <h1 th:text="${text}">hi</h1>
+        <h1 th:utext="${utext}">hi</h1>
+        <input type="text" th:value="${text}">
+        <div th:with="temp=${text}" th:text="${temp}"></div>
+        <div th:switch="${text}">
+            <p th:case="'hi'">hi</p>
+            <p th:case="'hello'">hello</p>
+            <p th:case="*">other</p>
+<!--            * 은 디폴트. 위에서 처리되지 않은 내용 처리해 줌.-->
+        </div>
+<!--        a = [1, 2, 3, 4, 5]-->
+<!--        for ( i in a ){-->
+<!--        console.log(i);-->
+
+<!--        <p></p>-->
+
+<!--        <ul>-->
+<!--            for ( name in names ){-->
+<!--            return ( <li>name</li> )-->
+<!--            }-->
+<!--            <li th:each="name:${names}">-->
+<!--                <span th:text="${name}">이름</span>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <p th:if="${text}=='web'" th:text="${text}"></p>
+        <p th:unless="${text}=='web'" th:text="'web이 아님'"></p>
+
+        <ul>
+            <li th:each="name:${names}" th:text="${name}">
+            </li>
+        </ul>
 </body>
 </html>
