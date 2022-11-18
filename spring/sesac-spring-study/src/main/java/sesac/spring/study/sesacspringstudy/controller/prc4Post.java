@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.sql.Array;
 import java.util.ArrayList;
 
-@Controller
-public class prc4Post {
-    ArrayList<Integer> years = new ArrayList<>();
-    ArrayList<Integer> month = new ArrayList<>();
-    ArrayList<Integer> days = new ArrayList<>();
+    @Controller
+    public class prc4Post {
+        ArrayList<Integer> years = new ArrayList<>();
+        ArrayList<Integer> month = new ArrayList<>();
+        ArrayList<Integer> days = new ArrayList<>();
 
     @GetMapping("form")
     public String getForm(Model model){
@@ -30,9 +30,26 @@ public class prc4Post {
         model.addAttribute("years", years);
         model.addAttribute("month", month);
         model.addAttribute("days", days);
-        return "form";
+        return "prc4Form";
     }
 
     // 일반 폼 전송
-
+    @PostMapping("postForm")
+    public String postForm(
+            @RequestParam(value="name") String name,
+            @RequestParam String sex,
+            @RequestParam int years,
+            @RequestParam int month,
+            @RequestParam int day,
+            @RequestParam String interest,
+            Model model
+    ){
+        model.addAttribute("name", name);
+        model.addAttribute("sex", sex);
+        model.addAttribute("years", years);
+        model.addAttribute("month", month);
+        model.addAttribute("day", day);
+        model.addAttribute("interest", interest);
+        return "prc4Result";
+    }
 }
