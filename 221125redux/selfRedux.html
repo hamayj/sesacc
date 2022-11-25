@@ -31,16 +31,36 @@
             }
 
             var newState;
+            // dispatch의 인자는 reducer의 action 파라미터에 대응됨.
             if(action.type === 'CHANGE_COLOR') {
-                newState = Object.assign({}, state, {color: action.color});
+                newState = Object.assign({}, state, {color: action.color}); // 이거 코드 뜻 뭐지?
             } return newState;
         }
 
         /* 5. 사용자는 reducer를 직접 호출하지 않고 dispatch라는 함수를 통해 호출한다.
             dispatch를 호출하면 reducer가 호출된다.
             dispatch의 인자는 object이며, 이 object는 {type: "xxx"..} 형태다.
-            이 인자는 reducerdml 'action' 파라미터에 대응된다.
+            이 인자는 reducer의 'action' 파라미터에 대응된다.
         */
+        store.dispatch({type: 'CHANGE_COLOR', color:'red'});
+        
+        // 6. 위 5번이 실행되면 state는 변경된 color로 업데이트 된다. 하지만 UI에는 변경된 state가 반영되지 않는다. (=Render)
+        /* 7. subscribe(function)를 통해 변경된 state가 반영되도록 한다.
+            즉 state가 변경되면 subscribe(function)에 등록된 함수가 실행됨.
+        */
+
+        store = Redux.createStore(
+            reducer,
+            window.__REDUX_DEVTOOLS_EXTENSION__&& // 선생님 코드에 없었는데 추가된 부분. 확장 프로그램 깔아야 됨.
+            window.__REDUX_DEVTOOLS_EXTENSION__()
+        );
+
+        function red(){
+            var state = store.getState()
+
+        }
+
+        
     </script>
 </body>
 </html>

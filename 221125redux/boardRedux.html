@@ -20,7 +20,6 @@
             <tbody id="tbody">
             </tbody>
         </table>
-        
         <script>
 
             // 1) store를 생성한다, reducer함수를 생성한다.
@@ -30,8 +29,9 @@
                 }
                 if ( action.type === 'WRITE' ) {
                     // data = { no: 0, name: '123', content: '123' }
-                    let boards = Object.assign(state.boards);
-                    boards.push(action.data);
+                    let boards = [action.data, ...state.boards];
+                    // let boards = Object.assign(state.boards);
+                    // boards.push(action.data);
                     // 쌤이 아까 알려주신 ... 방법?? -> 하단부 코드 참조.
                     // let boards1 = [...state.boards, data]; // 배열을 풀어서 나열한 것. 거기에 data를 추가해서 boards1를 만든 것.
                     // boards랑 boards1이랑 같은 내용.
@@ -47,9 +47,6 @@
                     );
                     
                     return { cnt: state.cnt, boards: boards};
-
-
-            
                 }
             }
 
@@ -67,6 +64,8 @@
                     name : document.querySelector("#name").value,
                     content: document.querySelector("#content").value
                 } // 넣을 data들.
+                document.querySelector("#name").value = "";
+                document.querySelector("#content").value = "";
                 store.dispatch({type: 'WRITE', data: data});
             }
 
