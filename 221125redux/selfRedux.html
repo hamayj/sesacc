@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script> 
+    <!-- cdn으로 Redux 불러오기 -->
+</head>
+<body>
+    <script>
+        /*
+        Redux란 상태(state) 관리를 위한 것.
+        1. 상태를 관리하기 위해서는 상태가 보관될 장소가 필요한데, 그 저장소가 store.
+        2. 사용자는 state를 get/set할 수 있음. 하지만 직접 store에 접근해서 state를 get/set 하지는 못함.
+        3. state를 get하기 위해서는 getState()메서드를 호출.
+        4. state를 set하기 위해서는 reducer를 사용.
+        */
+
+        // 4-1. reducer는 store를 생성할 때 어떤 reducer를 사용할지 지정해야 하므로 인자로 넣어줌.
+        var store = Redux.createStore(reducer);
+
+        // 4-2. 인자로 들어간 reducer는 function이며, 인자로 state와 action을 가짐.
+        // 4-3. 인자의 state는 기존 state이며, action에 맞게 state를 변경함. 이 때 변경된 state로 newState를 return함.
+
+        function reducer(state, action){
+            // state가 undefined일 때는 이전 state가 없는 상태, 즉 최초 state로 state를 초기화해줘야 함.
+            if(state === undefined){
+                return { color : 'yellow'}
+            }
+
+            var newState;
+            if(action.type === 'CHANGE_COLOR') {
+                newState = Object.assign({}, state, {color: action.color});
+            } return newState;
+        }
+
+        /* 5. 사용자는 reducer를 직접 호출하지 않고 dispatch라는 함수를 통해 호출한다.
+            dispatch를 호출하면 reducer가 호출된다.
+            dispatch의 인자는 object이며, 이 object는 {type: "xxx"..} 형태다.
+            이 인자는 reducerdml 'action' 파라미터에 대응된다.
+        */
+    </script>
+</body>
+</html>

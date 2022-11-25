@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        /* .red, .green, .yellow {
+            width: 10vw;
+            height: 10vw;
+            border: solid black 3px;
+            font-size: xx-large;
+            font-weight: bold;
+            text-align: center;
+        } */
+        div {
+            border: 3px solid black;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function reducer(state, action){
+            // state : 현재 상태(변경 되기 전) 기존 상태.
+            // action : dispatch를 호출할 때 넣었던 객체.
+            // reducer : 기존 상태랑 액션 받아서 바뀐 상태 Return해줘야 함
+            // return {color: 'red'};
+            // 액션 타입은 일반적으로 대문자로 적음.
+            if ( action.type === 'CHANGE'){
+                return { color : action.color };
+            }
+        }
+        var store = Redux.createStore(reducer); // store를 만들 때 reducer를 최초로 실행시킴.
+        
+        function red(){
+            var state = store.getState(); // {color: ~~}
+            document.querySelector('#red').style.backgroundColor = state.color;
+        }
+        function green(){
+            document.querySelector('#green').style.backgroundColor = 'green';
+        }
+        function yellow(){
+            document.querySelector('#red').style.backgroundColor = 'yellow';
+        }
+
+        // red();
+        // green();
+        // yellow();
+
+        store.subscribe(red);
+    </script>
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <div id="red">
+            <h1>red</h1>
+            <button type="button" onclick="store.dispatch({ type: 'CHANGE', color: 'red'});">red</button>
+        </div>
+        <div class="green"> 
+            <h1>green</h1>
+            <button type="button" onclick="store.dispatch({ type: 'CHANGE', color: 'green'});">green</button>
+        </div>
+        <div class="yellow"> 
+            <h1>yellow</h1>
+            <button type="button" onclick="store.dispatch({ type: 'CHANGE', color: 'yellow'});">yellow</button>
+        </div>
+    </div>
+
+</body>
+</html>
